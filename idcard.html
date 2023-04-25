@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Student</title>
+    <script src="javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilis.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <script src="javascript/app.js"></script>
+    <script src="javascript/web3.min.js"></script>
+
+
+    <script>
+        window.onload = function () {
+            document.getElementById("StudentID").innerHTML = localStorage.getItem("Student ID");
+            document.getElementById("StudentName").innerHTML = localStorage.getItem("Student Name");
+            document.getElementById("CollegeName").innerHTML = localStorage.getItem("College Name");
+            document.getElementById("Branch").innerHTML = localStorage.getItem("Branch"); 
+            document.getElementById("Year").innerHTML = localStorage.getItem("Year");
+
+            document.getElementById("name").innerHTML = localStorage.getItem("Student Name");
+        };
+    </script>
+
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="/img/logo1.png" style="width:28px" alt=""></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="issueid.html">Issue ID</a></li>
+                <li><a href="help.html">Help</a></li>
+                <!-- <li><input type="text" placeholder="Search..."><button>Search</button></li> -->
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <h1 style="color: white">Hello <span id="name"></span></h1>
+        <div class="idcard00">
+            <div class="idcard-main">
+                <div class="idcard01"> </div>
+                <div class="idcard02"> </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="box">
+            <div class="image-dp">
+
+            </div>
+            <div class="detail">
+                <b>Student ID-</b>
+                <span id="StudentID"></span>
+                <br>
+                <b>Student Name-</b>
+                <span id="StudentName"></span>
+                <br>
+                <b>College Name-</b>
+                <span id="CollegeName"></span>
+                <br>
+                <b>Branch-</b>
+                <span id="Branch"></span>
+                <br>
+                <b>Year- </b>
+                <span id="Year"></span><br>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <footer>
+
+        <div class="all-item-center ">
+
+            <p>CopyRight &copy; Radhika Rutaj Omkar Suraj </p>
+        </div>
+    </footer>
+</body>
+
+
+</html>

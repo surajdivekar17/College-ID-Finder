@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue ID Card</title>
+    <script src="javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilis.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <script src="javascript/app.js"></script>
+    <script src="javascript/web3.min.js"></script>
+    <script>
+        function issueID() {
+            _ID = document.getElementById("CollegeIDno").value;
+            StudentName = document.getElementById("StudentName").value;
+            Branch = document.getElementById("Branch").value;
+            CollegeName = document.getElementById("CollegeName").value;
+            Year = document.getElementById("Year").value;
+
+            myContract.methods.newCollegeid(_ID, StudentName, Branch, CollegeName, Year)
+                .send({ from: ethereum.selectedAddress, gasLimit: "927000" }).then((txn) => {
+                    console.log("Transaction Recipt: ", txn);
+                    alert("Student ID Issue with Number: " + _ID);
+                })
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="/img/logo1.png" style="width:28px" alt=""></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="issueid.html">Issue ID</a></li>
+                <li><a href="help.html">Help</a></li>
+                <!-- <li><input type="text" placeholder="Search..."><button>Search</button></li> -->
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <p style="color:white">Only College Admin can Issue Id Cards</p>
+
+        <button>
+            <button onclick="connectToMetMask()"><h2>Connect To Metamask</h2></button>
+        </button>
+
+        <div class="issueidcard">
+
+            <h1>Issue ID Cards</h1>
+            <b>College ID No</b>
+            <input id="CollegeIDno" type="text" placeholder="00036CUNY">
+            <b>Student Name</b>
+            <input id="StudentName" type="text" placeholder="Arpit Singh">
+            <b>Branch</b>
+            <input id="Branch" type="text" placeholder="Computer Science..">
+            <b>College Name</b>
+            <input id="CollegeName" type="text" placeholder="Columbia University NY">
+            <b>Year</b>
+            <input id="Year" type="text" placeholder="2022">
+
+            <button onclick="issueID()">Submit & IssueID</button>
+
+
+
+
+        </div>
+
+
+    </main>
+
+    <footer>
+
+        <div class="all-item-center ">
+
+            <p>CopyRight &copy; Radhika Rutaj Omkar Suraj </p>
+        </div>
+    </footer>
+</body>
+
+
+</html>

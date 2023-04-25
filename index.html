@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College ID Finder</title>
+    <script src="javascript/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/utilis.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <script src="javascript/app.js"></script>
+    <script src="javascript/web3.min.js"></script>
+    <script>
+        function getstudentidDetails() {
+            CollegeIDno = document.getElementById("CollegeIDno").value;
+            myContract.methods.studentidDetails(CollegeIDno)
+                .call({ from: ethereum.selectedAddress })
+                .then((result) => {
+                    console.log("Student Details: " + result);
+                    localStorage.setItem("Student ID", CollegeIDno);
+                    localStorage.setItem("Student Name", result.StudentName);
+                    localStorage.setItem("Branch", result.Branch);
+                    localStorage.setItem("College Name", result.CollegeName);
+                    localStorage.setItem("Year", result.Year);
+
+                    var url = "idcard.html";
+                    window.location.href = url;
+                })
+        }
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html"><img src="/img/logo1.png" style="width:28px" alt=""></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="issueid.html">Issue ID</a></li>
+                <li><a href="help.html">Help</a></li>
+                <!-- <li><input type="text" placeholder="Search..."><button>Search</button></li> -->
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <button onclick="connectToMetMask()">
+            <h2>Connect To Metamask</h2>
+            <p> Note: Only Connect with GoerliETH </p>
+        </button>
+
+        <div class="main-container">
+
+
+
+            <!-- <img src="https://picsum.photos/seed/stu/600/" alt=""> -->
+
+            <div class="container01">
+                <div class="container011">
+                    <p class="heading">
+                    <h1>
+                        FIND YOUR <p style="color:#7f46fa ;">BLOCKCHAIN</p> BASED ID CARD
+                    </h1>
+                    </p>
+                    <br>
+                    <p>
+                    <h2>Just put your College ID no</h2>
+                    </p>
+
+                </div>
+                <div class="container012">
+                    <p>
+                    <h2>College ID No</h2>
+                    </p>
+                    <input id="CollegeIDno" type="text" placeholder="Like-AR22001">
+                    <br>
+
+                    <button onclick="getstudentidDetails()"><b>Find My ID</b></button>
+                    Experimented Id- AR22001
+
+                </div>
+            </div>
+
+
+            <div class="container02"></div>
+            <div class="container03"></div>
+            <div class="logo_images">
+   
+                <a href="https://spheron.network/"><img src="/img/spheron_image.png" alt=""
+                        style="width:130px; height:75px" srcset=""></a>
+                <a href="https://filecoin.io/"> <img src="/img/filecoin_image.png" alt=""
+                        style="width:130px; height:75px" srcset=""></a>
+                <a href="https://www.alchemy.com/"><img src="/img/Alchemy_image" alt="" style="width:130px; height:75px"
+                        srcset=""></a>
+                <a href="https://ipfs.io/"> <img src="/img/ipfs_image.png" alt="" style="width:130px; height:75px"
+                        srcset=""></a>
+                <a href="https://metamask.io/"><img src="/img/metamask_image.png" alt=""
+                        style="width:130px; height:75px" srcset=""></a>
+                <a href="https://hardhat.org/"><img src="/img/hardhat_image.jfif" alt=""
+                        style="width:130px; height:75px" srcset=""></a>
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+
+        <div class="all-item-center ">
+
+            <p>CopyRight &copy; Radhika Rutaj Omkar Suraj </p>
+        </div>
+    </footer>
+</body>
+
+
+</html>
